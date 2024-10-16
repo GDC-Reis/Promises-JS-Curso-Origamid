@@ -84,6 +84,17 @@ promessa.then((resolucao) => { // tem como parâmetro da função anonima o suce
 })
 .then(resolucao => {
     console.log(resolucao); // Mostra no console o novo objeto com nome, idade e profissão.
-})
+});
+
+
+const cep = fetch('https://viacep.com.br/ws/01001000/json/');
+
+cep
+.then(response => response.json()) // Acessando o retorno de sucesso do fetch e retornando o mesmo em JSON
+.then(cep => {  // Acessando o arquivo em JSON
+    const conteudo = document.querySelector('.conteudo'); 
+    conteudo.innerText = cep.logradouro  // Pegando o valor do objeto do retorno da 'Promise'
+  console.log(cep); // Mostra no console
+});
 
 // ===================================================================
