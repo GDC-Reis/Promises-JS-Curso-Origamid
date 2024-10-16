@@ -95,10 +95,10 @@ const promessa = new Promise((resolve, reject) => {
     resolve('Etapa 1');
 });
 
-promessas.then((resolucao) => {
+promessa.then((resolucao) => {
     console.log(resolucao); // 'Etapa 1'
     return 'Etapa 2';
-}).then(resolucao => {
+}).then(resolucao => { // O valor da função anonima será o valor do 'return' do then anterior ('Etapa 2')
     console.log(resolucao) // 'Etapa 2'
     return 'Etapa 3';
 }).then((r) => {
