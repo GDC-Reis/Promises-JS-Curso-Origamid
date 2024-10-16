@@ -66,5 +66,24 @@ promessa.then((resolucao) => {
 
 
 
+//Exemplo de then encadeado
+
+const promessa = new Promise((resolve, reject) => {
+    let condicao = true;
+    if(condicao){
+        resolve({nome: 'Pedro', idade: 28})
+    }else{
+        reject(Error('Um erro ocorreu na promise'));
+    }
+});
+
+promessa.then((resolucao) => { // tem como parâmetro da função anonima o sucesso da promessa.
+    console.log(resolucao); // mostra no console o retorno do sucesso da promessa (Objeto Pessoa com nome e idade).
+    resolucao.profissao = 'Designer'; // Adiciona um novo método ao objeto (método profissão).
+    return resolucao; // Retorna o novo objeto com nome, idade e profissão.
+})
+.then(resolucao => {
+    console.log(resolucao); // Mostra no console o novo objeto com nome, idade e profissão.
+})
 
 // ===================================================================
